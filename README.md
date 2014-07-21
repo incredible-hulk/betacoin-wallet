@@ -17,5 +17,7 @@ You can build all sub-projects at once using Maven:
 
 `mvn clean install`
 
+Or go into the wallet directory and run the following using Maven:
+
 `mvn clean install -Dandroid.sdk.path=<path_to_android_sdk> -DskipTests`
 
