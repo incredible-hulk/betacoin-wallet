@@ -17,6 +17,5 @@ You can build all sub-projects at once using Maven:
 
 `mvn clean install`
 
-
-mvn clean install -Dandroid.sdk.path=../android-sdk-linux/ -DskipTests
+`mvn clean install -Dandroid.sdk.path=<path_to_android_sdk> -DskipTests`
 
