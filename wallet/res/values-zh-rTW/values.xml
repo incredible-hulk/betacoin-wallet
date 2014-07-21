@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<string-array name="preferences_precision_labels">
+		<item>BET, 8位數</item>
+		<item>BET, 6位數</item>
+		<item>BET, 4位數</item>
+		<item>mBET, 2位數</item>
+	</string-array>
+
+</resources>

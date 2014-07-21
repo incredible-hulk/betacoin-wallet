@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<string name="symbol_to">→</string>
+	<string name="symbol_from">←</string>
+	<string name="symbol_internal">⇄</string>
+	<string name="app_name">Betacoin</string>
+
+	<string-array name="preferences_precision_values">
+		<item>8</item>
+		<item>6</item>
+		<item>4</item>
+		<item>2/3</item>
+	</string-array>
+	<string-array name="preferences_precision_labels">
+		<item>BET, 8 digits</item>
+		<item>BET, 6 digits</item>
+		<item>BET, 4 digits</item>
+		<item>mBET, 2 digits</item>
+	</string-array>
+
+    <string-array name="preferences_exchange_rate_method_values">
+        <item>0</item>
+    </string-array>
+    <string-array name="preferences_exchange_rate_method_labels">
+        <item>Cryptsy</item>
+    </string-array>
+
+    <string name="exchange_rate_url_cryptsy">http://pubapi.cryptsy.com/api.php?method=singlemarketdata&amp;marketid=129</string>
+
+    <string-array name="exchange_rate_fields_cryptsy">
+        <item>lasttradeprice</item>
+    </string-array>
+
+</resources>
