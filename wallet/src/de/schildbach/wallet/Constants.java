@@ -49,6 +49,7 @@ public class Constants
 
 	public static final File EXTERNAL_WALLET_BACKUP_DIR = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
 	public static final String EXTERNAL_WALLET_KEY_BACKUP = "betacoin-wallet-keys" + FILENAME_NETWORK_SUFFIX;
+ public static final String IMPORT_WALLET_KEY_BACKUP = "betacoin-scanned-privatekey";
 
 	public static final String BLOCKCHAIN_FILENAME = "blockchain" + FILENAME_NETWORK_SUFFIX;
 
@@ -102,7 +103,7 @@ public class Constants
 	public static final String WEBMARKET_APP_URL = "https://play.google.com/store/apps/details?id=%s";
 	public static final String MARKET_PUBLISHER_URL = "market://search?q=pub:\"Coinsilo\"";
 
-	public static final String VERSION_URL = "http://wallet.schildbach.de/version";
+	public static final String VERSION_URL = "http://android.coinsilo.com/version";
 	public static final int HTTP_TIMEOUT_MS = 15 * (int) DateUtils.SECOND_IN_MILLIS;
 
 	public static final String PREFS_KEY_LAST_VERSION = "last_version";

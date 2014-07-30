@@ -194,6 +194,8 @@
 	<string name="about_credits_market_publisher_title">Other Apps of Author</string>
 	<string name="notification_coins_received_msg">Received %s</string>
 	<string name="notification_peers_connected_msg">%d peers connected</string>
+ <string name="import_key_text">They key has been saved encrypted as (betacoin-scanned-privatekey) in the Downloads folder on your SD card. \n\nThe password for this file is written on your paper wallet. \n\nYou will need to manually import it from the Menu - Back up Keys - Restore private keys</string>
+
 
 	<!-- generic buttons -->
 	<string name="button_ok">OK</string>

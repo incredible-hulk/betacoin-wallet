@@ -44,6 +44,18 @@ import de.schildbach.wallet.util.Bluetooth;
 import de.schildbach.wallet.util.Qr;
 import cc.betacoin.wallet.R;
 
+import java.io.StringWriter;
+import java.io.File;
+import java.io.Writer;
+import android.text.format.DateUtils;
+import java.io.FileOutputStream;
+import java.io.OutputStreamWriter;
+import java.text.DateFormat;
+import java.util.List;
+import de.schildbach.wallet.util.Crypto;
+import java.util.LinkedList;
+import de.schildbach.wallet.util.WalletUtils;
+
 /**
  * @author Andreas Schildbach
  */
@@ -58,6 +70,29 @@ public abstract class InputParser
 			this.input = input;
 		}
 
+		  /** NEW CODE */
+ private void scanPrivateKeys(@Nonnull final File file, @Nonnull final String password, @Nonnull final ECKey scannedKey)
+ {
+  try
+  {
+   final List<ECKey> keys = new LinkedList<ECKey>();
+   keys.add(scannedKey);
+   final StringWriter plainOut = new StringWriter();
+   WalletUtils.writeKeys(plainOut, keys);
+   plainOut.close();
+   final String plainText = plainOut.toString();
+   final String cipherText = Crypto.encrypt(plainText, password.toCharArray());
+   final Writer cipherOut = new OutputStreamWriter(new FileOutputStream(file), Constants.UTF_8);
+   cipherOut.write(cipherText);
+   cipherOut.close();
+  }
+  catch (final IOException x)
+  {
+     error(R.string.input_parser_invalid_address);
+  }
+ }
+ /*************************************************************************/
+ 
 		@Override
 		public void parse()
 		{
@@ -100,21 +135,24 @@ public abstract class InputParser
    * This section will need to be adjusted when code has been written to allow importing of private keys scanned
    * that have been prepended with "importkey" on the paper wallet generator, since the only real place that keys will be imported
    * from will be on a mobile device with a barcode scanner (such as phone/tablet)
-   *
+   */
    else if (input.startsWith("importkey:"))
    {
     try
     {
-     String[] splitinput = input.split(":");
-     final Address address = new Address(Constants.NETWORK_PARAMETERS, splitinput[1]);
-
-     bitcoinRequest(address, null, null, null);
+     Constants.EXTERNAL_WALLET_BACKUP_DIR.mkdirs();
+     final File file = new File(Constants.EXTERNAL_WALLET_BACKUP_DIR, Constants.IMPORT_WALLET_KEY_BACKUP);
+     final String[] splitinput = input.split(":");
+     ECKey key = new DumpedPrivateKey(Constants.NETWORK_PARAMETERS, splitinput[1]).getKey();
+     String password = splitinput[2]; 
+     scanPrivateKeys(file,password,key);
+     error(R.string.import_key_text);
     }
     catch (final AddressFormatException x)
     {
      error(R.string.input_parser_invalid_address);
     }
-   } */
+   } 
    else if (PATTERN_BITCOIN_ADDRESS.matcher(input).matches())
 			{
 				try

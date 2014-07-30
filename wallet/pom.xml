@@ -4,9 +4,9 @@
 
 	<modelVersion>4.0.0</modelVersion>
 
-	<artifactId>wallet</artifactId>
+	<artifactId>betacoin-wallet</artifactId>
 	<packaging>apk</packaging>
-	<version>1.00</version>
+	<version>1.10</version>
 	<name>Betacoin Wallet</name>
 
 	<parent>

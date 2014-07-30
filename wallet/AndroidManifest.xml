@@ -4,7 +4,7 @@
     package="cc.betacoin.wallet"
     android:installLocation="internalOnly"
     android:versionCode="155"
-    android:versionName="1.00.0" >
+    android:versionName="1.10.0" >
 
 	<uses-sdk
 		android:minSdkVersion="10"
